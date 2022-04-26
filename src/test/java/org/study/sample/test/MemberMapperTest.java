@@ -33,7 +33,7 @@ public class MemberMapperTest {
 		log.info("memberInsertTest() 종료.");
 	}
 	
-	@Test
+//	@Test
 	public void memberInsertDummyTest() {
 		
 		for (int i = 11; i < 100; i++) {
@@ -66,7 +66,17 @@ public class MemberMapperTest {
 		MemberDTO dto = mapper.memberRead("6");
 		log.info(dto.toString());
 		
-		
+	}
+	
+	@Test
+	public void memberUpdateTest() {
+		MemberDTO dto = new MemberDTO();
+		dto.setM_no(10);
+		dto.setM_address("뉴욕");
+		mapper.memberUpdate(dto);
+		MemberDTO dto1 = mapper.memberRead("10");
+		log.info(dto1.toString());
+	}
 		
 	}
-}
+

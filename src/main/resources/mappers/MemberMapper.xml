@@ -17,7 +17,15 @@
 		</delete>
 		
 		<select id="memberRead" resultType="org.study.sample.model.MemberDTO">
-			SELECT * from memberTBL WHERE m_no = #{m_no}
+			SELECT * FROM memberTBL WHERE m_no = #{m_no}
+		</select>
+		
+		<update id="memberUpdate">
+			UPDATE memberTBL SET m_id = #{m_id}, m_address = #{m_address} WHERE m_no = #{m_no}
+		</update>
+		
+		<select id="getRealPassWord" resultType="String">
+			SELECT m_pw FROM memberTBL WHERE m_id = #{m_id}
 		</select>
 	
 	</mapper>

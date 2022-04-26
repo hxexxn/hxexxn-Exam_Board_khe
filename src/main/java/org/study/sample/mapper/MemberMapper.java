@@ -16,5 +16,9 @@ public interface MemberMapper {
 	
 	public MemberDTO memberRead(String m_no);
 	
+	public void memberUpdate(MemberDTO dto);
+
+	public String getRealPassWord(String m_id);
+	
 	
 }
