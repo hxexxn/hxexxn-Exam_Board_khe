@@ -10,6 +10,8 @@
 <body>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
+
+
 	<h1>글 상세보기</h1>
 
 	<p>글 제목 : ${dto.b_title} </p>
@@ -33,24 +35,17 @@
 	
 	<!-- 달려있는 댓글 목록  보기 -->
 	
-	<table border="1">
+	<div id="commentTest">
 	
-		<tr>
-			<td>번호</td>
-			<td>작성자 </td>
-			<td>내용 </td>
-			<td>등록일</td>
-		<tr>
-	</table><br>
-	
+	</div>
 
 	<!-- 댓글 달기 -->
-	<form action="#" method="get" id="commentForm">
-		<p><input type="hidden" name="b_no" value="${dto.b_no}">
-		<p>댓글 작성자 : <input type="text" name="c_writer" value="${sessionScope.m_id}" readonly="readonly"> </p>
+	
+		<p><input type="hidden" name="b_no" value="${dto.b_no}" id="b_no">
+		<p>댓글 작성자 : <input type="text" name="c_writer" value="${sessionScope.m_id}" readonly="readonly" id="c_writer"> </p>
 		<p>댓글 : <input type="text" name="c_content" id="c_content"></p>
-		<p><a href="commentInsert" id="commentBtn">등록</a></p>
-	</form>
+		<p><button type="button" id="commentBtn">등록</button></p>
+	
 	
 	<script type="text/javascript" src="${path}/resources/js/mine.js"></script>
 </body>

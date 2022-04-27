@@ -22,7 +22,6 @@ public class BoardController {
 		List<BoardDTO> list = boardService.boardList();
 		model.addAttribute("list", list);
 		return "board/boardList";
-		
 	}
 	
 	@GetMapping("/boardInsert")

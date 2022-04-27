@@ -4,11 +4,16 @@
                   
 	<mapper namespace="org.study.sample.mapper.CommentMapper">
 	
-		<insert id="commentRegist">
-			INSERT INTO commentTBL (c_writer, c_content) VALUES(#{c_writer}, #{c_content})		
+		<insert id="commentInsert">
+			INSERT INTO commentTBL (b_no, c_writer, c_content) VALUES(#{b_no}, #{c_writer}, #{c_content})		
 		</insert>
 	
 		<select id="commentList" resultType="org.study.sample.model.CommentDTO">
-			SELECT * FROM commentTBL
+			SELECT * FROM commentTBL WHERE b_no = #{b_no}
 		</select>
+		
+		<delete id="commentDelete">
+			DELETE FROM commentTBL WHERE c_no= #{c_no}
+		</delete>
+		
 	</mapper>
