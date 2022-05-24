@@ -35,12 +35,14 @@
 	
 	<!-- 달려있는 댓글 목록  보기 -->
 	
+	<h3>댓글 목록</h3>
 	<div id="commentTest">
 	
 	</div>
 
 	<!-- 댓글 달기 -->
-	
+		
+		<h3>Comment</h3>
 		<p><input type="hidden" name="b_no" value="${dto.b_no}" id="b_no">
 		<p>댓글 작성자 : <input type="text" name="c_writer" value="${sessionScope.m_id}" readonly="readonly" id="c_writer"> </p>
 		<p>댓글 : <input type="text" name="c_content" id="c_content"></p>

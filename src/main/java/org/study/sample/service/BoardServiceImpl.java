@@ -14,8 +14,13 @@ public class BoardServiceImpl implements BoardService {
 	private BoardMapper mapper;
 	
 	@Override
-	public void boardInsert(BoardDTO dto) {
-		mapper.boardInsert(dto);
+	public void boardDelete(String b_no) {
+		mapper.boardDelete(b_no);
+	}
+	
+	@Override
+	public void boardUpdate(BoardDTO dto) {
+		mapper.boardUpdate(dto);
 	}
 
 	@Override
@@ -23,20 +28,20 @@ public class BoardServiceImpl implements BoardService {
 		return mapper.boardList();
 	}
 
+	
+	@Override
+	public void boardInsert(BoardDTO dto) {
+		mapper.boardInsert(dto);
+	}
+
 	@Override
 	public BoardDTO boardRead(String b_no) {
 		return mapper.boardRead(b_no);
 	}
 
-	@Override
-	public void boardUpdate(BoardDTO dto) {
-		mapper.boardUpdate(dto);
-	}
+	
 
-	@Override
-	public void boardDelete(String b_no) {
-		mapper.boardDelete(b_no);
-	}
+	
 
 	
 }

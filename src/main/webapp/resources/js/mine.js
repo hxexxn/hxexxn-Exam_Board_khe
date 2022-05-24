@@ -39,6 +39,11 @@ function commentList(){
 		var c_writer = $('#c_writer').val();
 		var c_content = $('#c_content').val();
 		
+		if(c_content == "") {
+			alert('내용을 입력해주세요.');
+			return;
+		}
+		
 		$.ajax({
 			url: "/commentInsert",
 			type: "get",

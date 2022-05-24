@@ -17,31 +17,16 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 	
-	@GetMapping("/boardList")
-	public String boardList(Model model) {
-		List<BoardDTO> list = boardService.boardList();
-		model.addAttribute("list", list);
-		return "board/boardList";
-	}
-	
-	@GetMapping("/boardInsert")
-	public String boardInsert() {
-		return "board/boardInsert";
-	}
-	
-	@PostMapping("/boardInsert")
-	public String boardInsertProcess(BoardDTO dto) {
-		boardService.boardInsert(dto);
+	@GetMapping("/boardDelete")
+	public String boardDelete(@RequestParam("b_no")String b_no) {
+		
+		boardService.boardDelete(b_no);
 		return "redirect:/boardList";
-	}
-
-	@GetMapping("/boardRead")
-	public String boardRead(@RequestParam("b_no")String b_no, Model model) {
-		BoardDTO dto = boardService.boardRead(b_no);
-		model.addAttribute("dto", dto);
-		return "board/boardRead";
+		
 	}
 	
+	
+
 	@GetMapping("/boardUpdate")
 	public String boardUpdate(@RequestParam("b_no")String b_no, Model model) {
 		BoardDTO dto = boardService.boardRead(b_no);
@@ -58,12 +43,33 @@ public class BoardController {
 		return "redirect:/boardRead?b_no=" + dto.getB_no();
 	}
 	
-	@GetMapping("/boardDelete")
-	public String boardDelete(@RequestParam("b_no")String b_no) {
-		
-		boardService.boardDelete(b_no);
+	
+	
+	
+	@GetMapping("/boardInsert")
+	public String boardInsert() {
+		return "board/boardInsert";
+	}
+	
+	@PostMapping("/boardInsert")
+	public String boardInsertProcess(BoardDTO dto) {
+		boardService.boardInsert(dto);
 		return "redirect:/boardList";
-		
+	}
+
+	
+	@GetMapping("/boardList")
+	public String boardList(Model model) {
+		List<BoardDTO> list = boardService.boardList();
+		model.addAttribute("list", list);
+		return "board/boardList";
+	}
+	
+	@GetMapping("/boardRead")
+	public String boardRead(@RequestParam("b_no")String b_no, Model model) {
+		BoardDTO dto = boardService.boardRead(b_no);
+		model.addAttribute("dto", dto);
+		return "board/boardRead";
 	}
 	
 }
